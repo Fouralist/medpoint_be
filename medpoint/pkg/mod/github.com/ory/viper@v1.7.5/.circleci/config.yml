@@ -1,0 +1,23 @@
+version: 2.1
+
+orbs:
+  nancy: ory/nancy@0.0.9
+
+jobs:
+  test:
+    docker:
+      -
+        image: circleci/golang:1.12
+        environment:
+          - GO111MODULE=on
+    working_directory: /go/src/github.com/ory/viper
+    steps:
+      - checkout
+      -
+        run: go test -race -v ./...
+
+workflows:
+  tbr:
+    jobs:
+      - nancy/test
+      - test
