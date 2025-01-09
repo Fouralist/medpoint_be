@@ -1,0 +1,8 @@
+build/
+examples/
+deployments/
+
+!pkg/cli/build
+coverage.out
+tmp.out
+profile.out
